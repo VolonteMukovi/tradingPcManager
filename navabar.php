@@ -30,40 +30,39 @@ include("commande.php");
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
-				<a href="#">
-					<i class='bx bxs-dashboard' ></i>
+				<a href="#"> 
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
 			<li>
-				<a href="index.php">
-					<i class='bx bxs-shopping-bag-alt' ></i>
+				<a href="index.php" class="mx-3">
+					<i class='fas fa-clone mx-1' ></i>
 					<span class="text">Cathegorie</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
-					<i class='bx bxs-doughnut-chart' ></i>
+				<a class="mx-3" href="produit.php">
+					<i class='fas fa-laptop mx-1' ></i>
 					<span class="text">Produits</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
-					<i class='bx bxs-message-dots' ></i>
+				<a class="mx-3" href="#">
+					<i class='fas fa-wheelchair mx-1' ></i>
 					<span class="text">Vente</span>
 				</a>
 			</li>
 		</ul>
 		<ul class="side-menu">
 			<li>
-				<a href="#">
-					<i class='bx bxs-cog' ></i>
+				<a class="mx-3" href="#">
+					<i class='fas fa-id-badge mx-1' ></i>
 					<span class="text">Identifiant</span>
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
+				<a href="#" class="mx-3">
+					<i class='fas fa-power-off mx-1' ></i> 
 					<span class="text">Deconexion</span>
 				</a>
 			</li>
