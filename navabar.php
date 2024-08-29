@@ -1,3 +1,7 @@
+<?php  
+include("connexion_db.php");
+include("commande.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,14 +84,6 @@
 					<button type="submit" class="search-btn"><i class="fas fa-search" ></i></button>
 				</div>
 			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
-			<a href="#" class="profile">
-				<img title="people" src="img/people.png">
-			</a>
+			<p class="mb-2" >Admin</p>
 		</nav>
 		<!-- NAVBAR -->
