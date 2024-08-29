@@ -97,7 +97,7 @@ function saveProduits($db, $nom_produit, $prixAchat_produit, $prixVente_produit,
                 if (in_array($extension_upload, $extensions_autorisees)) {
                     if (move_uploaded_file($photo['tmp_name'], './Images/' . basename($photo['name']))) {
                         try {
-                            $req = $db->prepare("INSERT INTO `tb_produits`(`nom_produit`, `prixAchat_produit`, `prixVente_produit`, `fournisseur_prouiduit`, `photos_produit`, `id_categorie`) VALUES (?,?,?,?,?)");
+                            $req = $db->prepare("INSERT INTO `tb_produits`(`nom_produit`, `prixAchat_produit`, `prixVente_produit`, `fournisseur_prouiduit`, `photos_produit`, `id_categorie`) VALUES (?,?,?,?,?,?)");
                             $req->execute(array($nom_produit, $prixAchat_produit, $prixVente_produit, $fournisseur_prouiduit,basename($photo['name']), $id_categorie));
                             header("location: produits.php");
                         } catch (PDOException $e) {
