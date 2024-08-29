@@ -1,4 +1,5 @@
 <?php  
+session_start();
 include("connexion_db.php");
 include("commande.php");
 ?>
@@ -57,13 +58,13 @@ include("commande.php");
 			<li>
 				<a href="#">
 					<i class='bx bxs-cog' ></i>
-					<span class="text">Settings</span>
+					<span class="text">Identifiant</span>
 				</a>
 			</li>
 			<li>
 				<a href="#" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Logout</span>
+					<span class="text">Deconexion</span>
 				</a>
 			</li>
 		</ul>

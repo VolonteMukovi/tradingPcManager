@@ -50,10 +50,10 @@ function AfficheCategorie($db)
     }
 }
 
-function AfficheCategoriEdit($db)
+function AfficheCategoriEdit($db,$id_categorie)
 {
     try {
-        $req = $db->query("SELECT * FROM `tb_categorie`");
+        $req = $db->query("SELECT * FROM `tb_categorie` WHERE `id_categorie`='".$id_categorie."'");
         $data = $req->fetchAll(PDO::FETCH_OBJ);
         return $data;
     } catch (Exception $e) {
@@ -65,8 +65,8 @@ function editCategorie($db, $id_categorie, $nom_categorie, $description)
 {
     try {
         $req = $db->prepare("UPDATE `tb_categorie` SET `nom_categorie`=?,`Description`=? WHERE `id_categorie`=?");
-        $req->execute(array($db, $nom_categorie, $description, $id_categorie));
-        header("location: categorie.php");
+        $req->execute(array($nom_categorie, $description, $id_categorie));
+        header("location: index.php");
     } catch (Exception $e) {
         $e->getMessage();
     }

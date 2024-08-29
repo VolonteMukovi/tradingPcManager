@@ -6,7 +6,7 @@ include "navabar.php";
 <main>
     <div class="head-title">
         <div class="left">
-            <h1 class="">Ajouter une Cathegories</h1>
+            <h1 class="">Ajouter une Categorie</h1>
             <ul class="breadcrumb">
                 <li>
                     <a href="#">Dashboard</a>
@@ -22,25 +22,53 @@ include "navabar.php";
         <img id="photo-output" alt="Prévisualisation de la photo">
     </div>
     <div class="formulaire flex justify-center">
-        <div class="conteirForm">
-            <form action="action.php" method="post" enctype="multipart/form-data" >
-                <div class="mb-3">
-                    <label class="block font-medium text-gray-500 "><i class="fas fa-layer-group text-gray-700"></i> Nom du Categorie</label>
-                    <input type="text" placeholder="Ex: Acer" name="nom" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
+        <?php if (isset($_GET["categories"])) {
+            if (isset($_GET["action"]) and $_GET["action"] == "edit") {
+                $delete = AfficheCategoriEdit($db, $_GET["categories"]);
+                foreach ($delete as $deletes) {
+                    $_SESSION["id_categorie"] = $deletes->id_categorie;
+                    $nom_categorie  = $deletes->nom_categorie;
+                    $description = $deletes->Description;
+                }
+        ?>
+                <div class="conteirForm">
+                    <form action="action.php" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label class="block font-medium text-gray-500 "><i class="fas fa-layer-group text-gray-700"></i> Nom du Categorie</label>
+                            <input type="text" value="<?php echo $nom_categorie      ?>" placeholder="Ex: Acer" name="nom" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
+                        </div>
+                        <div class="mb-3">
+                            <label class="block font-medium text-gray-500 "><i class="fas fa-solar-panel text-gray-700"></i> Description</label>
+                            <textarea placeholder="Ex: RAM:4GB Processeur:2Hz 4:Couers Bat:25mAh" name="description" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 "><?php echo $description      ?></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <input name="editCateg" value="Modifier" type="submit" class="inline-flex items-center p-2 w-full rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-900 ">
+                        </div>
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label class="block font-medium text-gray-500 "><i class="fas fa-solar-panel text-gray-700"></i> Description</label>
-                    <textarea placeholder="Ex: RAM:4GB Processeur:2Hz 4:Couers Bat:25mAh" name="description" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 "></textarea>
-                </div>
-                <div class="mb-3">
-                    <label class="block font-medium text-gray-500 "><i class="fas fa-camera text-gray-700"></i> Image</label>
-                    <input name="img" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 " id="photo" type="file" accept="image/*" onchange="previewPhoto(event)">
-                </div>
-                <div class="mb-3">
-                    <input name="saveCateg" value="Enregistre" type="submit" class="inline-flex items-center p-2 w-full rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-900 ">
-                </div>
-            </form>
-        </div>
+            <?php
+            }
+        } else {  ?>
+            <div class="conteirForm">
+                <form action="action.php" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="block font-medium text-gray-500 "><i class="fas fa-layer-group text-gray-700"></i> Nom du Categorie</label>
+                        <input type="text" placeholder="Ex: Acer" name="nom" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
+                    </div>
+                    <div class="mb-3">
+                        <label class="block font-medium text-gray-500 "><i class="fas fa-solar-panel text-gray-700"></i> Description</label>
+                        <textarea placeholder="Ex: RAM:4GB Processeur:2Hz 4:Couers Bat:25mAh" name="description" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 "></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="block font-medium text-gray-500 "><i class="fas fa-camera text-gray-700"></i> Image</label>
+                        <input name="img" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 " id="photo" type="file" accept="image/*" onchange="previewPhoto(event)">
+                    </div>
+                    <div class="mb-3">
+                        <input name="saveCateg" value="Enregistrer" type="submit" class="inline-flex items-center p-2 w-full rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-900 ">
+                    </div>
+                </form>
+            </div>
+        <?php } ?>
     </div>
 </main>
 <!-- MAIN -->

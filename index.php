@@ -37,12 +37,12 @@ include "navabar.php";
 									<i class="fas fa-laptop text-6xl bg-blue-200 p-2 rounded-lg text-blue-500"></i>
 								</div>
 								<div class="block px-3 mb-2">
-									<p class="text-gray-700 font-bold text-2xl underline underline-offset-8 "><?php echo $categories->nom_categorie    ?></p>
+									<p class="block text-gray-700 font-bold text-2xl underline underline-offset-8 "><?php echo $categories->nom_categorie    ?></p>
 									<p class="text-gray-700 italic "><?php echo $categories->Description    ?></p>
 								</div><br><br>
 								<div class="action absolute bottom-0 end-0 p-2">
 									<span>
-										<a href=""  class="btn m-0 p-0"><i class="fas fa-pen text-blue-500" ></i></a>
+										<a href="ajout_Catge.php?action=edit&categories=<?php echo $categories->id_categorie ?>"  class="btn m-0 p-0"><i class="fas fa-pen text-blue-500" ></i></a>
 										<a href="suppresion.php?action=delete&categories=<?php echo $categories->id_categorie ?>"  class="btn m-0 p-0"><i class="fas fa-trash-alt text-red-500" ></i></a>
 										<a href=""  class="btn m-0 p-0"><i class="fas fa-eye text-yellow-500" ></i></a>
 									</span>
