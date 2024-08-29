@@ -1,0 +1,15 @@
+<?php
+include("connexion_db.php");
+include("commande.php");
+
+if (isset($_GET["categories"])) {
+    if (isset($_GET["action"]) and $_GET["action"] == "delete") {
+      deleteCategorie($db,$_GET["categories"]);
+    
+    }
+  }
+
+
+
+
+?>

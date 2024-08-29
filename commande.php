@@ -77,8 +77,8 @@ function deleteCategorie($db, $id_categorie)
 {
     try {
         $req = $db->prepare("DELETE FROM `tb_categorie` WHERE `id_categorie`=?");
-        $req->execute(array($db, $id_categorie));
-        header("location: categorie.php");
+        $req->execute(array($id_categorie));
+        header("location: index.php");
     } catch (Exception $e) {
         $e->getMessage();
     }
