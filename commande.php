@@ -206,3 +206,32 @@ function countEleve($db)
         $e->getMessage();
     }
 }
+
+
+
+
+// ======================================================= VENTE ===================================================================
+function insertVente($db, $nom_client,$id_produit,$montat_payer,$observation)
+{
+    try {
+        $req = $db->prepare("INSERT INTO `tb_client`(`nom_client`) VALUES (?)");
+        $req->execute(array($nom_client));
+        $id_client = $db->lastInsertId();
+        $req = $db->prepare("INSERT INTO `tb_vente`(`id_produits`, `id_clients`, `montat_payer`, `observation`) VALUES (?,?,?,?)");
+        $req->execute(array($id_produit,$id_client,$montat_payer,$observation));
+        header("location: vente.php");
+    } catch (Exception $e) {
+        $e->getMessage();
+    }
+}
+
+function AfficheVente($db)
+{
+    try {
+        $req = $db->query("SELECT * FROM `tb_vente` INNER JOIN tb_client ON tb_client.id_clients = tb_vente.id_clients INNER JOIN tb_produits ON tb_produits.id_produits = tb_vente.id_produits JOIN tb_categorie ON tb_categorie.id_categorie = tb_produits.id_categorie");
+        $data = $req->fetchAll(PDO::FETCH_OBJ);
+        return $data;
+    } catch (Exception $e) {
+        $e->getMessage();
+    }
+}

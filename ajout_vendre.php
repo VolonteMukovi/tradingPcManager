@@ -40,7 +40,9 @@ include "navabar.php";
                             <div class="col">
                                 <div class="mb-3">
                                     <label class="block font-medium text-gray-500 "><i class="fas fa-layer-group text-gray-700"></i> Nom du Produit</label>
-                                    <input value="<?php echo $nom_prod ?>" type="text" required placeholder="Ex: Acer" name="nom" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
+                                    <select name="id_produit" id="" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                        <option value="<?php echo $_SESSION["id_prod"];   ?>"><?php echo $nom_prod;   ?></option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label class="block font-medium text-gray-500 "><i class="fas fa-clone text-gray-700"></i> Selectioner une Categorie</label>
@@ -76,11 +78,11 @@ include "navabar.php";
                                 </div>
                                 <div class="mb-3">
                                     <label class="block font-medium text-gray-500 "><i class="fas fa-ring text-gray-700"></i> Montat Payer par le Client</label>
-                                    <input name="nomClient" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 " type="text">
+                                    <input name="mntPayer" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 " type="text">
                                 </div>
                                 <div class="mb-3">
                                     <label class="block font-medium text-gray-500 "><i class="fas fa-solar-panel text-gray-700"></i> Description ou Observation</label>
-                                    <textarea name="nomClient" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5"></textarea>
+                                    <textarea name="descript" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5"></textarea>
                                 </div>
                             </div>
                             <div class="col"><br><br>
@@ -91,7 +93,7 @@ include "navabar.php";
                         </div>
                         <div class="mb-3 grid grid-cols-2 mx-5">
                             <div class="col">
-                                <input name="editProd" value="Enregistrer" type="submit" class="inline-flex items-center p-2 w-full rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-900 ">
+                                <input name="saveVendre" value="Enregistrer" type="submit" class="inline-flex items-center p-2 w-full rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-900 ">
                             </div>
                         </div>
                     </form>

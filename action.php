@@ -42,6 +42,17 @@ if(isset($_POST["editProd"]))
     produitsEdit($db,$nom,$prixAchat,$prixVente,$fsr,$photo,$id_categ);
 }
 
+if(isset($_POST["saveVendre"]))
+{
+    $nom = htmlspecialchars(ucwords($_POST["nom"]));
+    $id_produit = htmlspecialchars(ucwords($_POST["id_produit"]));
+    $mntPayer = htmlspecialchars(ucwords($_POST["mntPayer"]));
+    $descript = htmlspecialchars(ucwords($_POST["descript"]));
+    $nomClient = htmlspecialchars(ucwords($_POST["nomClient"]));
+    insertVente($db,$nomClient,$id_produit,$mntPayer,$descript);
+}
+
+
 
 
 
