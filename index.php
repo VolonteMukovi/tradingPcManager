@@ -17,7 +17,7 @@ include "navabar.php";
 						</li>
 					</ul>
 				</div>
-				<a href="#" class="btn-download">
+				<a href="ajout_Catge.php" class="btn-download">
 					<i class='fas fa-plus' ></i>
 					<span class="text">Ajouter</span>
 				</a>
