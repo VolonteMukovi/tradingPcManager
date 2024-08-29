@@ -159,11 +159,11 @@ function produitsEdit($db, $nom_produit, $prixAchat_produit, $prixVente_produit,
     }
 }
 
-function deleteProduits($db, $id_eleve)
+function deleteProduits($db, $id_produit)
 {
     try {
-        $req = $db->query("DELETE FROM `tb_eleve` WHERE `ID_eleve` = '" . $id_eleve . "' ");
-        header("location: inscrits.php");
+        $req = $db->query("DELETE FROM `tb_produits` WHERE `id_produits` = '" . $id_produit . "' ");
+        header("location: produit.php");
     } catch (Exception $e) {
         $e->getMessage();
     }

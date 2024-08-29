@@ -49,9 +49,9 @@ include "navabar.php";
                         <td class="border-t py-2 px-4 text-center">$  <?php echo  $produit->prixVente_produit ?></td>
                         <td class="border-t py-2 px-4 text-center"><?php echo  $produit->fournisseur_prouiduit ?></td>
                         <td class="border-t py-2 px-4 text-center">
-                            <button class="text-blue-500 hover:text-blue-700"><i class="fas fa-edit"></i> <a href="ajouts_eleves.php?action=editer&eleve=<?php echo  $eleve->ID_eleve ?>"></a> </button>
-                            <button class="text-red-500 hover:text-red-700 ml-2 mx-3"><i class="fas fa-trash"></i><a href="suppression.php?action=supprimer&eleve=<?php echo  $eleve->ID_eleve ?>"></a> </button>
-                            <a href="#" class="bg-yellow-500 text-white rounded-lg hover:bg-yellow-400 p-2" ><i class="fas fa-cart-arrow-down"></i> Ventre</a>
+                        <button class="ml-2"><a href="suppresion.php?action=edit&produit=<?php echo $produit->id_produits ?>"><i class="fas fa-edit text-blue-500 hover:text-blue-700"></i></a> </button>
+                            <button class="ml-2"><a href="suppresion.php?action=delete&produit=<?php echo $produit->id_produits ?>"><i class="fas fa-trash text-red-500 hover:text-red-700"></i></a> </button>
+                            <a href="suppresion.php?action=delete&produit=<?php echo $categories->id_categorie ?>" class="bg-yellow-500 text-white rounded-lg hover:bg-yellow-400 p-2 mx-4" ><i class="fas fa-cart-arrow-down"></i> Ventre</a>
                         </td>
                     </tr>
                 <?php  }
