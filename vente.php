@@ -6,7 +6,7 @@ include "navabar.php";
 <main>
     <div class="head-title">
         <div class="left">
-            <h1>Produits</h1>
+            <h1>Produits Vendusgi</h1>
             <ul class="breadcrumb">
                 <li>
                     <a href="#">Dashboard</a>
@@ -18,8 +18,8 @@ include "navabar.php";
             </ul>
         </div>
         <a href="ajout_produit.php" class="btn-download">
-            <i class='fas fa-plus'></i>
-            <span class="text">Ajouter</span>
+            <i class='fas fa-print'></i>
+            <span class="text">Rapport</span>
         </a>
     </div><br><br>
     <div class="overflow-x-auto">
