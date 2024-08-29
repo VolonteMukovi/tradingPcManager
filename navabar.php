@@ -47,7 +47,7 @@ include("commande.php");
 				</a>
 			</li>
 			<li>
-				<a class="mx-3" href="#">
+				<a class="mx-3" href="vente.php">
 					<i class='fas fa-wheelchair mx-1' ></i>
 					<span class="text">Vente</span>
 				</a>
