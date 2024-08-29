@@ -23,21 +23,23 @@ include "navabar.php";
     </div>
     <div class="formulaire flex justify-center">
         <div class="conteirForm">
-            <div class="mb-3">
-                <label class="block font-medium text-gray-500 "><i class="fas fa-layer-group text-gray-700"></i> Nom du Categorie</label>
-                <input type="text" placeholder="Ex: Acer" name="nom" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
-            </div>
-            <div class="mb-3">
-                <label class="block font-medium text-gray-500 "><i class="fas fa-solar-panel text-gray-700"></i> Description</label>
-                <textarea placeholder="Ex: RAM:4GB Processeur:2Hz 4:Couers Bat:25mAh" name="description" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 "></textarea>
-            </div>
-            <div class="mb-3">
-                <label class="block font-medium text-gray-500 "><i class="fas fa-camera text-gray-700"></i> Image</label>
-                <input name="img" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 "id="photo" type="file" accept="image/*" onchange="previewPhoto(event)">
-            </div>
-            <div class="mb-3">
-                <input value="Enregistre" type="submit" class="inline-flex items-center p-2 w-full rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-900 ">
-            </div>
+            <form action="action.php" method="post" enctype="multipart/form-data" >
+                <div class="mb-3">
+                    <label class="block font-medium text-gray-500 "><i class="fas fa-layer-group text-gray-700"></i> Nom du Categorie</label>
+                    <input type="text" placeholder="Ex: Acer" name="nom" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
+                </div>
+                <div class="mb-3">
+                    <label class="block font-medium text-gray-500 "><i class="fas fa-solar-panel text-gray-700"></i> Description</label>
+                    <textarea placeholder="Ex: RAM:4GB Processeur:2Hz 4:Couers Bat:25mAh" name="description" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 "></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="block font-medium text-gray-500 "><i class="fas fa-camera text-gray-700"></i> Image</label>
+                    <input name="img" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 " id="photo" type="file" accept="image/*" onchange="previewPhoto(event)">
+                </div>
+                <div class="mb-3">
+                    <input name="saveCateg" value="Enregistre" type="submit" class="inline-flex items-center p-2 w-full rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-900 ">
+                </div>
+            </form>
         </div>
     </div>
 </main>

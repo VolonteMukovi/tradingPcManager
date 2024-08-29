@@ -33,7 +33,7 @@ function insertCategorie($db, $nom_categorie, $description)
     try {
         $req = $db->prepare("INSERT INTO `tb_categorie`(`nom_categorie`, `Description`) VALUES (?,?)");
         $req->execute(array($nom_categorie, $description));
-        header("location: ajout_categorie.php");
+        header("location: ajout_Catge.php");
     } catch (Exception $e) {
         $e->getMessage();
     }

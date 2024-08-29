@@ -31,7 +31,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="index.php">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">Cathegorie</span>
 				</a>
