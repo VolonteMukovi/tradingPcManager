@@ -9,69 +9,24 @@
 </head>
 <body class="bg-gray-100 min-h-screen">
     <div class="flex">
-        <aside class="w-64 bg-gray-800 text-white flex flex-col h-screen" style="min-height:100%">
+        <aside class="w-64 bg-white textgray-700 text-gray-700 flex flex-col h-screen" style="min-height:100%">
             <div class="flex items-center m-4">
-                <i class="fas fa-school text-2xl mr-2"></i> 
-                <span class="text-xl font-semibold">School Manager</span>
+                <i class="fas fa-desktop mx-5"></i> 
+                <span class="text-xl font-bold">Trading Pc</span>
             </div>
             <nav class="flex-grow">
                 <ul>
-                    <li class="px-6 py-2 hover:bg-gray-700">
-                        <a href="dasboard.php" class="flex items-center">
-                            <i class="fas fa-calendar-alt mr-3"></i> Années scolaires
+                    <li class="px-6 py-2 hover:bg-gray-200 ">
+                        <a href="index.php" class="flex items-center">
+                            <i class="fas fa-clone mr-3"></i> Categories
                         </a>
                     </li>
-                    <li class="px-6 py-2 hover:bg-gray-700">
-                        <a href="inscrits.php" class="flex items-center">
-                            <i class="fas fa-user-graduate mr-3"></i> Élèves
-                        </a>
-                    </li>
-                    <li class="px-6 py-2 hover:bg-gray-700">
-                        <a href="classes.php" class="flex items-center">
-                        <i class="fas fa-school mr-3"></i></i> Classes
-                        </a>
-                    </li>
-                    <li class="px-6 py-2 hover:bg-gray-700">
-                        <a href="listes_prof.php" class="flex items-center">
-                            <i class="fas fa-chalkboard-teacher mr-3"></i> Professeurs
-                        </a>
-                    </li>
-                    <li class="px-6 py-2 hover:bg-gray-700">
-                        <a href="cours.php" class="flex items-center">
-                            <i class="fas fa-book mr-3"></i> Cours
-                        </a>
-                    </li>
-                    <li class="px-6 py-2 hover:bg-gray-700">
-                        <a href="options.php" class="flex items-center">
-                            <i class="fas fa-stream mr-3"></i> Options
-                        </a>
-                    </li>
-                    <li class="px-6 py-2 hover:bg-gray-700">
-                        <a href="Section.php" class="flex items-center">
-                            <i class="fas fa-stream mr-3"></i> Section
-                        </a>
-                    </li>
-                    <li class="px-6 py-2 hover:bg-gray-700">
-                        <a href="periode.php" class="flex items-center">
-                            <i class="fas fa-clock mr-3"></i> Périodes
-                        </a>
-                    </li>
-                    <li class="px-6 py-2 hover:bg-gray-700">
-                        <a href="horaire.php" class="flex items-center">
-                            <i class="fas fa-calendar-check mr-3"></i> Horaires
-                        </a>
-                    </li>
-                    <li class="px-6 py-2 hover:bg-gray-700">
-                        <a href="epreuve.php" class="flex items-center">
-                            <i class="fas fa-clipboard-list mr-3"></i> Épreuves
-                        </a>
-                    </li>
-                    <li class="px-6 py-2 hover:bg-gray-700">
+                    <li class="px-6 py-2 hover:bg-gray-200 ">
                         <a href="identifiant.php" class="flex items-center">
                             <i class="fas fa-id-badge mr-3"></i> Identifiants
                         </a>
                     </li>
-                    <li class="px-6 py-2 hover:bg-gray-700">
+                    <li class="px-6 py-2 hover:bg-gray-200 ">
                         <a href="deconnexion.php" class="flex items-center">
                             <i class="fas fa-sign-out-alt mr-3"></i> Se déconnecter
                         </a>

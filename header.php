@@ -12,7 +12,7 @@
 <body class="bg-gray-100 min-h-screen">
 
     <div class="flex-grow ">
-        <header class="flex justify-between items-center bg-white p-4 shadow-md  mb-6">
+        <header class="flex justify-between items-center bg-white p-4 shadow-md  mb-6 w-full">
             <div class="flex items-center">
                 <div class=" p-2 rounded-full mr-3">
                     <i class="fas fa-user-circle text-2xl text-[#16C8FF]"></i>
