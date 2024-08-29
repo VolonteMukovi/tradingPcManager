@@ -30,6 +30,18 @@ if(isset($_POST["SaveProd"]))
     saveProduits($db,$nom,$prixAchat,$prixVente,$fsr,$photo,$id_categ,$nbrPiece);
 }
 
+if(isset($_POST["editProd"]))
+{
+    $nom = htmlspecialchars(ucwords($_POST["nom"]));
+    $id_categ = htmlspecialchars(ucwords($_POST["id_categ"]));
+    $prixAchat = htmlspecialchars(ucwords($_POST["prixAchat"]));
+    $prixVente = htmlspecialchars(ucwords($_POST["prixVente"]));
+    $fsr = htmlspecialchars(ucwords($_POST["fsr"]));
+    $nbrPiece = $_POST["nbrPiece"];
+    $photo = $_FILES["img"];
+    produitsEdit($db,$nom,$prixAchat,$prixVente,$fsr,$photo,$id_categ);
+}
+
 
 
 

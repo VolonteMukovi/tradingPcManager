@@ -22,55 +22,71 @@ include "navabar.php";
         <img id="photo-output" alt="Prévisualisation de la photo">
     </div>
     <div class="formulaire flex justify-center">
-        <?php if (isset($_GET["categories"])) {
+        <?php if (isset($_GET["produit"])) {
             if (isset($_GET["action"]) and $_GET["action"] == "edit") {
-                $delete = AfficheCategoriEdit($db, $_GET["categories"]);
-                foreach ($delete as $deletes) {
-                    $_SESSION["id_categorie"] = $deletes->id_categorie;
-                    $nom_categorie  = $deletes->nom_categorie;
-                    $description = $deletes->Description;
+                $editProd = AfficheProduitsEdit($db,$_GET["produit"]);
+                foreach ($editProd as $produits) {
+                    $_SESSION["id_prod"] = $produits->id_produits;
+                    $nom_prod  = $produits->nom_produit;
+                    $prixAchat_produit = $produits->prixAchat_produit;
+                    $prixVente_produit  = $produits->prixVente_produit;
+                    $prixAchat_produit = $produits->prixAchat_produit;
+                    $id_categorie  = $produits->id_categorie;
+                    $nom_categorie  = $produits->nom_categorie;
+                    $fournisseur_prouiduit = $produits->fournisseur_prouiduit;
                 }
         ?>
-                <div class="conteirForm">
-                    <form action="action.php" method="post" enctype="multipart/form-data">
-                        <div class="grid grid-cols-2 gap-3">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label class="block font-medium text-gray-500 "><i class="fas fa-layer-group text-gray-700"></i> Nom du Produit</label>
-                                    <input type="text" required placeholder="Ex: Acer" name="nom" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="block font-medium text-gray-500 "><i class="fas fa-clone text-gray-700"></i> Selectioner une Categorie</label>
-                                    <select name="id_categ" id="" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-                                        <option value="#"></option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="block font-medium text-gray-500 "><i class="fas fa-comments-dollar text-gray-700"></i> Prix D'achat</label>
-                                    <input type="text" required placeholder="Ex: 300 $" name="prixAchat" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="block font-medium text-gray-500 "><i class="fas fa-coins text-gray-700"></i> Prix D'achat</label>
-                                    <input type="text" required placeholder="Ex: 300 $" name="prixVente" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
-                                </div>
+        <div class="conteirForm">
+                <form action="action.php" method="post" enctype="multipart/form-data">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label class="block font-medium text-gray-500 "><i class="fas fa-layer-group text-gray-700"></i> Nom du Produit</label>
+                                <input value="<?php echo $nom_prod ?>" type="text" required placeholder="Ex: Acer" name="nom" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
                             </div>
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label class="block font-medium text-gray-500 "><i class="fas fa-camera text-gray-700"></i> Image</label>
-                                    <input required name="img" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 " id="photo" type="file" accept="image/*" onchange="previewPhoto(event)">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="block font-medium text-gray-500 "><i class="fas fa-camera text-gray-700"></i> Nombre des Pieces</label>
-                                    <input required name="nbrPiece" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 " type="number">
-                                </div>
-                                <div class="mb-3">
-                                    <input name="editProd" value="Modifier" type="submit" class="inline-flex items-center p-2 w-full rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-900 ">
-                                </div>
+                            <div class="mb-3">
+                                <label class="block font-medium text-gray-500 "><i class="fas fa-clone text-gray-700"></i> Selectioner une Categorie</label>
+                                <?php $categorie = AfficheCategorie($db); ?>
+                                <select name="id_categ" id="" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+
+                                    <?php
+                                    foreach ($categorie as $categories) {
+                                    ?>
+                                        <option value="<?php echo $id_categorie;   ?>"><?php echo $nom_categorie;   ?></option>
+                                        <option value="<?php echo $categories->id_categorie;   ?>"><?php echo $categories->nom_categorie;   ?></option>
+                                    <?php }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="block font-medium text-gray-500 "><i class="fas fa-comments-dollar text-gray-700"></i> Prix D'achat</label>
+                                <input type="number" value="<?php echo $prixAchat_produit  ?>" required placeholder="Ex: 300 $" name="prixAchat" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
+                            </div>
+                            <div class="mb-3">
+                                <label class="block font-medium text-gray-500 "><i class="fas fa-coins text-gray-700"></i> Prix Vente</label>
+                                <input type="number" value="<?php echo $prixVente_produit  ?>" required placeholder="Ex: 300 $" name="prixVente" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
                             </div>
                         </div>
-                    </form>
-                </div>
-
+                        <div class="col">
+                            <div class="mb-3">
+                                <label class="block font-medium text-gray-500 "><i class="fas fa-camera text-gray-700"></i> Image</label>
+                                <input  name="img" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 " id="photo" type="file" accept="image/*" onchange="previewPhoto(event)">
+                            </div>
+                            <div class="mb-3">
+                                <label class="block font-medium text-gray-500 "><i class="fas fa-comments-dollar text-gray-700"></i> Fournisseur</label>
+                                <input type="text" value="<?php echo $fournisseur_prouiduit  ?>" required placeholder="Ex: Palos" name="fsr" class="block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 ">
+                            </div>
+                            <div class="mb-3">
+                                    <label class="block font-medium text-gray-500 "><i class="fas fa-list-ol text-gray-700"></i> Nombre des Pieces</label>
+                                    <input   name="nbrPiece" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 " type="number">
+                                </div>
+                            <div class="mb-3">
+                                <input name="editProd" value="Enregistrer" type="submit" class="inline-flex items-center p-2 w-full rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-900 ">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <?php
             }
         } else {  ?>

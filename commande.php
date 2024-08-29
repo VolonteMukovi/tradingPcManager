@@ -132,12 +132,12 @@ function produitsEdit($db, $nom_produit, $prixAchat_produit, $prixVente_produit,
             $extension_upload = $infosfichier['extension'];
             $extensions_autorisees = array('png', 'jpg', 'jpeg', "avif");
             if (in_array($extension_upload, $extensions_autorisees)) {
-                if (move_uploaded_file($photo['tmp_name'], './Images/' . basename($photo['name']))) {
+                if (move_uploaded_file($photo['tmp_name'], './img/' . basename($photo['name']))) {
                     try {
                         $req =  $db->prepare("UPDATE tb_produits SET `nom_produit`=?, `prixAchat_produit`=?, `prixVente_produit`=?, `fournisseur_prouiduit`=?, `photos_produit`=?, `id_categorie`=? WHERE `nom_produit`=? ");
-                        $req->execute(array($nom_produit, $prixAchat_produit, $prixVente_produit, $fournisseur_prouiduit, basename($photo['name']), $id_categorie));
+                        $req->execute(array($nom_produit, $prixAchat_produit, $prixVente_produit, $fournisseur_prouiduit, basename($photo['name']), $id_categorie,$nom_produit));
                         unset($_POST);
-                        header("location: produits.php");
+                        header("location: produit.php");
                     } catch (PDOException $e) {
                         echo $e->getMessage();
                     }
@@ -153,10 +153,10 @@ function produitsEdit($db, $nom_produit, $prixAchat_produit, $prixVente_produit,
     } else {
 
         try {
-            $req =  $db->prepare("UPDATE tb_produits SET `nom_produit`=?, `prixAchat_produit`=?, `prixVente_produit`=?, `fournisseur_prouiduit`=?, `id_categorie`=?");
-            $req->execute(array($nom_produit, $prixAchat_produit, $prixVente_produit, $fournisseur_prouiduit, $id_categorie));
+            $req =  $db->prepare("UPDATE tb_produits SET `nom_produit`=?, `prixAchat_produit`=?, `prixVente_produit`=?, `fournisseur_prouiduit`=?, `id_categorie`=? WHERE `nom_produit`=?");
+            $req->execute(array($nom_produit, $prixAchat_produit, $prixVente_produit, $fournisseur_prouiduit, $id_categorie,$nom_produit));
             unset($_POST);
-            header("location: produits.php");
+            header("location: produit.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -177,6 +177,17 @@ function AfficheProduits($db)
 {
     try {
         $req = $db->query("SELECT * FROM `tb_produits` INNER JOIN tb_categorie ON tb_categorie.id_categorie = tb_produits.id_categorie ");
+        $data = $req->fetchAll(PDO::FETCH_OBJ);
+        return $data;
+    } catch (Exception $e) {
+        $e->getMessage();
+    }
+}
+
+function AfficheProduitsEdit($db,$id_produit)
+{
+    try {
+        $req = $db->query("SELECT * FROM `tb_produits` INNER JOIN tb_categorie ON tb_categorie.id_categorie = tb_produits.id_categorie WHERE `id_produits`='".$id_produit."' ");
         $data = $req->fetchAll(PDO::FETCH_OBJ);
         return $data;
     } catch (Exception $e) {
