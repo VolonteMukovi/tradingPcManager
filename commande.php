@@ -50,10 +50,10 @@ function AfficheCategorie($db)
     }
 }
 
-function AfficheCategoriEdit($db,$id_categorie)
+function AfficheCategoriEdit($db, $id_categorie)
 {
     try {
-        $req = $db->query("SELECT * FROM `tb_categorie` WHERE `id_categorie`='".$id_categorie."'");
+        $req = $db->query("SELECT * FROM `tb_categorie` WHERE `id_categorie`='" . $id_categorie . "'");
         $data = $req->fetchAll(PDO::FETCH_OBJ);
         return $data;
     } catch (Exception $e) {
@@ -86,7 +86,7 @@ function deleteCategorie($db, $id_categorie)
 
 // =========================================================================== ORDINATEUR ==================================================================
 
-function saveProduits($db, $nom_produit, $prixAchat_produit, $prixVente_produit, $fournisseur_prouiduit, $photo, $id_categorie)
+function saveProduits($db, $nom_produit, $prixAchat_produit, $prixVente_produit, $fournisseur_prouiduit, $photo, $id_categorie, $nbrPiece)
 {
     try {
         if (isset($photo) and $photo['error'] == 0) {
@@ -97,8 +97,12 @@ function saveProduits($db, $nom_produit, $prixAchat_produit, $prixVente_produit,
                 if (in_array($extension_upload, $extensions_autorisees)) {
                     if (move_uploaded_file($photo['tmp_name'], './img/' . basename($photo['name']))) {
                         try {
-                            $req = $db->prepare("INSERT INTO `tb_produits`(`nom_produit`, `prixAchat_produit`, `prixVente_produit`, `fournisseur_prouiduit`, `photos_produit`, `id_categorie`) VALUES (?,?,?,?,?,?)");
-                            $req->execute(array($nom_produit, $prixAchat_produit, $prixVente_produit, $fournisseur_prouiduit,basename($photo['name']), $id_categorie));
+                            for ($i = 1; $i<=$nbrPiece;$i++) {
+
+                                $req = $db->prepare("INSERT INTO `tb_produits`(`nom_produit`, `prixAchat_produit`, `prixVente_produit`, `fournisseur_prouiduit`, `photos_produit`, `id_categorie`) VALUES (?,?,?,?,?,?)");
+                                $req->execute(array($nom_produit, $prixAchat_produit, $prixVente_produit, $fournisseur_prouiduit, basename($photo['name']), $id_categorie));
+                            }
+
                             header("location: ajout_produit.php");
                         } catch (PDOException $e) {
                             echo $e->getMessage();
@@ -130,7 +134,7 @@ function produitsEdit($db, $nom_produit, $prixAchat_produit, $prixVente_produit,
             if (in_array($extension_upload, $extensions_autorisees)) {
                 if (move_uploaded_file($photo['tmp_name'], './Images/' . basename($photo['name']))) {
                     try {
-                        $req =  $db->prepare("UPDATE tb_produits SET `nom_produit`=?, `prixAchat_produit`=?, `prixVente_produit`=?, `fournisseur_prouiduit`=?, `photos_produit`=?, `id_categorie`=?");
+                        $req =  $db->prepare("UPDATE tb_produits SET `nom_produit`=?, `prixAchat_produit`=?, `prixVente_produit`=?, `fournisseur_prouiduit`=?, `photos_produit`=?, `id_categorie`=? WHERE `nom_produit`=? ");
                         $req->execute(array($nom_produit, $prixAchat_produit, $prixVente_produit, $fournisseur_prouiduit, basename($photo['name']), $id_categorie));
                         unset($_POST);
                         header("location: produits.php");

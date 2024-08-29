@@ -25,8 +25,9 @@ if(isset($_POST["SaveProd"]))
     $prixAchat = htmlspecialchars(ucwords($_POST["prixAchat"]));
     $prixVente = htmlspecialchars(ucwords($_POST["prixVente"]));
     $fsr = htmlspecialchars(ucwords($_POST["fsr"]));
+    $nbrPiece = $_POST["nbrPiece"];
     $photo = $_FILES["img"];
-    saveProduits($db,$nom,$prixAchat,$prixVente,$fsr,$photo,$id_categ);
+    saveProduits($db,$nom,$prixAchat,$prixVente,$fsr,$photo,$id_categ,$nbrPiece);
 }
 
 
