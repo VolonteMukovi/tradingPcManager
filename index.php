@@ -44,7 +44,7 @@ include "navabar.php";
 									<span>
 										<a href="ajout_Catge.php?action=edit&categories=<?php echo $categories->id_categorie ?>"  class="btn m-0 p-0"><i class="fas fa-edit text-blue-500" ></i></a>
 										<a href="suppresion.php?action=delete&categories=<?php echo $categories->id_categorie ?>"  class="btn m-0 p-0"><i class="fas fa-trash-alt text-red-500" ></i></a>
-										<a href=""  class="btn m-0 p-0"><i class="fas fa-eye text-yellow-500" ></i></a>
+										<a href="produit.php"  class="btn m-0 p-0"><i class="fas fa-eye text-yellow-500" ></i></a>
 									</span>
 								</div>
 							</div>
