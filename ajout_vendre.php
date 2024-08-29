@@ -75,17 +75,23 @@ include "navabar.php";
                                     <input name="nomClient" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 " type="text">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="block font-medium text-gray-500 "><i class="fas fa-solar-panel text-gray-700"></i> Description ou Observation</label>
-                                    <textarea name="nomClient" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5"></textarea>
+                                    <label class="block font-medium text-gray-500 "><i class="fas fa-ring text-gray-700"></i> Montat Payer par le Client</label>
+                                    <input name="nomClient" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5 " type="text">
                                 </div>
                                 <div class="mb-3">
-                                    <input name="editProd" value="Enregistrer" type="submit" class="inline-flex items-center p-2 w-full rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-900 ">
+                                    <label class="block font-medium text-gray-500 "><i class="fas fa-solar-panel text-gray-700"></i> Description ou Observation</label>
+                                    <textarea name="nomClient" class="block text-gray-500 w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 focus:border-blue-500 focus:border-5"></textarea>
                                 </div>
                             </div>
                             <div class="col"><br><br>
                                 <div class="flex justify-center">
-                                    <span><i class="fas fa-calculator text-2xl mx-2" ></i> Montat a Payer <span class="bg-green-500 text-white font-bold p-2 rounded-full text-xl" id="montantPayer" >$ </span></span>  
+                                    <span><i class="fas fa-calculator text-2xl mx-2"></i> Montat a Payer <span class="bg-green-500 text-white font-bold p-2 rounded-full text-xl" id="montantPayer">$ </span></span>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 grid grid-cols-2 mx-5">
+                            <div class="col">
+                                <input name="editProd" value="Enregistrer" type="submit" class="inline-flex items-center p-2 w-full rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-900 ">
                             </div>
                         </div>
                     </form>
@@ -98,16 +104,15 @@ include "navabar.php";
 <!-- MAIN -->
 </section>
 <!-- CONTENT -->
- <script>
+<script>
     const nbrPiece = document.querySelector("#nbrPiece");
     const prixAchat = document.querySelector("#prixAchat").value;
     const affPrix = document.querySelector("#montantPayer");
-    nbrPiece.addEventListener('change', function () {
-	var montatPayer = nbrPiece.value*prixAchat;
-    affPrix.innerHTML=montatPayer+" $";
-})
-
- </script>
+    nbrPiece.addEventListener('change', function() {
+        var montatPayer = nbrPiece.value * prixAchat;
+        affPrix.innerHTML = "$ " + montatPayer;
+    })
+</script>
 </body>
 
 </html>
