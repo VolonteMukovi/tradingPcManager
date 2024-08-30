@@ -53,7 +53,7 @@
                 ?>
 
 
-                <button name="btn_login" type="submit" class="btn w-full bg-blue-500  text-white py-2 rounded-md font-semibold hover:bg-gray-700 ">Se connecter</button>
+                <button name="btn_login" type="submit" class="btn w-full bg-blue-500  text-white py-2 rounded-md font-semibold hover:bg-blue-700 ">Se connecter</button>
             </form>
         </div>
     </main>
