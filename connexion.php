@@ -12,9 +12,6 @@
     </style>
 </head>
 <body class="bg-[#16C8FF] min-h-screen flex flex-col items-center justify-center">
-    <header class="w-full bg-white p-4 shadow-md fixed top-0 left-0">
-        <h1 class="text-2xl font-bold text-left text-gray-500">School Manager</h1>
-    </header>
 
     <main class="flex flex-col md:flex-row items-center bg-white shadow-lg rounded-lg p-6 w-full md:w-2/3 lg:w-1/2 mt-24">
         <div class="hidden md:block md:w-1/2 mr-4">

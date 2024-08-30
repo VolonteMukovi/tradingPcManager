@@ -55,7 +55,7 @@ include("commande.php");
 		</ul>
 		<ul class="side-menu">
 			<li>
-				<a class="mx-3" href="#">
+				<a class="mx-3" href="identifiant.php">
 					<i class='fas fa-id-badge mx-1' ></i>
 					<span class="text">Identifiant</span>
 				</a>
