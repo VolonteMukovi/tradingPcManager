@@ -61,7 +61,7 @@ include("commande.php");
 				</a>
 			</li>
 			<li>
-				<a href="#" class="mx-3">
+				<a href="deconnexion.php" class="mx-3">
 					<i class='fas fa-power-off mx-1' ></i> 
 					<span class="text">Deconexion</span>
 				</a>
