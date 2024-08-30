@@ -16,11 +16,23 @@ function loginAdmin($db, $pseudo, $pwd)
     }
 }
 
+function AfficheAdmin($db)
+{
+    try {
+        $req = $db->query("SELECT * FROM `tb_admin` ");
+        $data = $req->fetchAll(PDO::FETCH_OBJ);
+        return $data;
+    } catch (Exception $e) {
+        $e->getMessage();
+    }
+}
+
 function editAdmin($db, $pseudo, $pwd)
 {
     try {
-        $req = $db->prepare("UPDATE `tb_admin` SET `pseudo_admin`=?,`mdp_admin`=? WHERE `id_admin`=? ");
+        $req = $db->prepare("UPDATE `tb_admin` SET `pseudo_admin`=?,`mdp_admin`=?");
         $req->execute(array($pseudo, $pwd));
+        header("location: identifiant.php");
     } catch (Exception $e) {
         $e->getMessage();
     }

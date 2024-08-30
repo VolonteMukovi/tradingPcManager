@@ -2,6 +2,15 @@
 session_start();
 include("connexion_db.php");
 include("commande.php");
+
+if(isset($_POST["btnEditAdmin"]))
+{
+    $nom = $_POST["identifiant"];
+    $password = $_POST["password"];
+    editAdmin($db,$nom,$password);
+}
+
+
 if(isset($_POST["saveCateg"]))
 {
     $nom = htmlspecialchars(ucwords($_POST["nom"]));
