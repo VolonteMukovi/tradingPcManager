@@ -6,7 +6,7 @@ include "navabar.php";
 <main>
     <div class="head-title">
         <div class="left">
-            <h1>Produits Vendusgi</h1>
+            <h1>Produits Vendus</h1>
             <ul class="breadcrumb">
                 <li>
                     <a href="#">Dashboard</a>
@@ -48,7 +48,7 @@ include "navabar.php";
                         <td class="border-t py-2 px-4 text-center"><?php echo  $vente->dates ?></td>
                         <td class="border-t py-2 px-4 text-center">
                             <button class="ml-2"><a href="ajout_produit.php?action=edit&produit=<?php echo $produit->id_produits ?>"><i class="fas fa-edit text-blue-500 hover:text-blue-700"></i></a> </button>
-                            <button class="ml-2"><a href="suppresion.php?action=delete&produit=<?php echo $produit->id_produits ?>"><i class="fas fa-trash text-red-500 hover:text-red-700"></i></a> </button>
+                            <button class="ml-2"><a href="suppresion.php?action=delete&vendus=<?php echo $vente->id_vente ?>"><i class="fas fa-trash text-red-500 hover:text-red-700"></i></a> </button>
                             <button class="ml-2"><a class="text-green-500 font-semi-bold hover:text-green-700 " href="suppresion.php?action=delete&produit=<?php echo $produit->id_produits ?>">Reçu <i class="fas fa-file-invoice-dollar text-green-500 hover:text-green-700 "></i></a> </button>
                         </td>
                     </tr>
