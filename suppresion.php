@@ -18,7 +18,7 @@ if (isset($_GET["categories"])) {
 
   if (isset($_GET["vendus"])) {
     if (isset($_GET["action"]) and $_GET["action"] == "delete") {
-      deleteVente($db,$_GET["vendus"]);
+      deleteVente($db,$_GET["vendus"],$_GET["client"]);
     
     }
   }

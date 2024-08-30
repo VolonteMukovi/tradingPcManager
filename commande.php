@@ -225,10 +225,11 @@ function insertVente($db, $nom_client,$id_produit,$montat_payer,$observation)
     }
 }
 
-function deleteVente($db,$id_vente)
+function deleteVente($db,$id_vente,$id_client)
 {
     try {
         $req = $db->query("DELETE FROM `tb_vente` WHERE `id_vente`='".$id_vente."'");
+        $req = $db->query("DELETE FROM `tb_client` WHERE `id_clients`='".$id_client."'");
         header("location: vente.php");
     } catch (Exception $e) {
         $e->getMessage();
