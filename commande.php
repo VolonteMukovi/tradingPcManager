@@ -51,6 +51,18 @@ function insertCategorie($db, $nom_categorie, $description)
     }
 }
 
+function countCategorie($db,$idCateg)
+{
+    try {
+        $req = $db->query("SELECT COUNT(*) AS nbr FROM `tb_produits` WHERE `id_categorie`='".$idCateg."' ");
+        $data = $req->fetchAll(PDO::FETCH_OBJ);
+        return $data;
+        header("location: ajout_Catge.php");
+    } catch (Exception $e) {
+        $e->getMessage();
+    }
+}
+
 function AfficheCategorie($db)
 {
     try {

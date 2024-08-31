@@ -30,7 +30,9 @@ if (isset($_COOKIE["admin"])) { ?>
 							<div class="card p-2 rounded relative transition origin-bottom-right hover:rotate-45">
 								<div class="square flex">
 									<div class="nbr">
-										<h4 class="text-gray-500 bg-gray-500 rounded font-bold absolute end-0 top-0 px-2 text-white ">50</h4>
+										<?php $count = countCategorie($db,$categories->id_categorie); 
+										foreach($count as $counts) {$nbr = $counts->nbr;}       ?>
+										<h4 class="text-gray-500 bg-gray-500 rounded font-bold absolute end-0 top-0 px-2 text-white "><?= $nbr  ?></h4>
 									</div>
 									<div class="inline-flex items-center ">
 										<i class="fas fa-laptop text-6xl bg-blue-200 p-2 rounded-lg text-blue-500"></i>
