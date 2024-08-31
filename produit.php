@@ -68,6 +68,20 @@ include "navabar.php";
 
 
 <script src="script.js"></script>
+<script >
+     
+     function appel_popup(){
+         var popup=document.getElementById("popup_overlay");
+         var container=document.querySelector(".resultat");
+         var descript_res=document.querySelector(".descript_res");
+         popup.classList.toggle("active");
+         container.classList.toggle("resultat_active");
+         descript_res.classList.toggle("resultat_active");
+         // alert("salut");
+     }
+ </script>
+
+
 </body>
 
 </html>

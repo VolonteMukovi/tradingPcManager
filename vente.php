@@ -17,12 +17,12 @@ include "navabar.php";
                 </li>
             </ul>
         </div>
-        <a href="ajout_produit.php" class="btn-download">
+        <a class="btn-download">
             <i class='fas fa-print'></i>
-            <span class="text">Rapport</span>
+            <span class="text cursor-pointer"onclick="printDiv('printableArea')">Rapport</span>
         </a>
     </div><br><br>
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto"id="printableArea">
         <table class="min-w-full bg-white shadow-md rounded ">
             <thead class="bg-white-200 text-gray-700">
                 <tr>
@@ -62,7 +62,17 @@ include "navabar.php";
 </section>
 <!-- CONTENT -->
 
+<script>  
+    // Printing the content when the page loads  
+    function printDiv(divId) {  
+        const printContents = document.getElementById(divId).innerHTML;  
+        const originalContents = document.body.innerHTML;  
 
+        document.body.innerHTML = printContents;  
+        window.print();  
+        document.body.innerHTML = originalContents;  
+    } 
+</script> 
 <script src="script.js"></script>
 </body>
 

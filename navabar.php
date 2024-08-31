@@ -77,10 +77,10 @@ include("commande.php");
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
+			<a href="#" class="nav-link">Categories,Produits,Clients</a>
 			<form action="#">
 				<div class="form-input">
-					<input type="search" placeholder="Search...">
+					<input type="search" placeholder="Chercher...">
 					<button type="submit" class="search-btn"><i class="fas fa-search" ></i></button>
 				</div>
 			</form>
